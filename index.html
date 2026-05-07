@@ -727,6 +727,41 @@
 
 <script>
 /* =========================================================
+   GOOGLE SHEETS INTEGRATION
+   วาง URL ที่ได้จากการ Deploy GAS Web App ตรงนี้
+   ตัวอย่าง: 'https://script.google.com/macros/s/AKfycby.../exec'
+========================================================= */
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbziaT2j3uXf2ROB5lMqgsnaGjZ1mo2HqkQbzMa2Reg3Pl1BHOtQHXiCE3ai07wgmn1NUQ/exec';
+
+function recordToGoogleSheets(){
+  if (!GAS_URL || GAS_URL === 'https://script.google.com/macros/s/AKfycbziaT2j3uXf2ROB5lMqgsnaGjZ1mo2HqkQbzMa2Reg3Pl1BHOtQHXiCE3ai07wgmn1NUQ/exec') return;
+
+  const total = quiz.length;
+  const pct = Math.round(state.score / total * 100);
+  const answers = quiz.map((q, i) =>
+    state.quizAnswers[i] === q.correct ? 'ถูก' : 'ผิด'
+  );
+
+  const payload = {
+    name: state.studentName,
+    score: state.score,
+    total: total,
+    percentage: pct,
+    passed: pct >= 80,
+    certId: state.certId || '',
+    answers: answers,
+    userAgent: navigator.userAgent
+  };
+
+  fetch(GAS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify(payload)
+  }).catch(err => console.warn('บันทึกข้อมูลไม่สำเร็จ:', err));
+}
+
+/* =========================================================
    STATE
 ========================================================= */
 const state = {
@@ -736,7 +771,8 @@ const state = {
   completed: new Set(),
   quizAnswers: {},
   quizSubmitted: false,
-  score: 0
+  score: 0,
+  certId: ''
 };
 
 /* =========================================================
@@ -1577,6 +1613,11 @@ function renderQuiz(){
       quiz.forEach((q,i)=>{ if (state.quizAnswers[i] === q.correct) score++; });
       state.score = score;
       state.quizSubmitted = true;
+      state.certId = state.certId || ('MNS-MID-' + Date.now().toString().slice(-8));
+
+      // บันทึกผลลงฐานข้อมูล Google Sheets (background, ไม่บล็อก UI)
+      recordToGoogleSheets();
+
       state.view = 'result';
       render();
       window.scrollTo({top:0,behavior:'smooth'});
@@ -1668,7 +1709,7 @@ function renderCertificate(){
   const thMonths = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
   const thaiYear = date.getFullYear() + 543;
   const dateStr = `${date.getDate()} ${thMonths[date.getMonth()]} พ.ศ. ${thaiYear}`;
-  const certId = 'MNS-MID-' + Date.now().toString().slice(-8);
+  const certId = state.certId || ('MNS-MID-' + Date.now().toString().slice(-8));
   const pct = Math.round(state.score / quiz.length * 100);
 
   root.innerHTML = `
@@ -1735,6 +1776,7 @@ function renderCertificate(){
     state.quizAnswers = {};
     state.quizSubmitted = false;
     state.score = 0;
+    state.certId = '';
     render();
     window.scrollTo({top:0,behavior:'smooth'});
   });
