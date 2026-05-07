@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>หลักสูตรพยาบาลศาสตรมหาบัณฑิต สาขาวิชาการผดุงครรภ์ — ระบบเรียนรู้ออนไลน์</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2A2520;
+    --ink-soft:#5C544A;
+    --paper:#FAF6EE;
+    --paper-warm:#F2EBDC;
+    --burgundy:#6B1F2E;
+    --burgundy-deep:#4A1520;
+    --ochre:#B8860B;
+    --ochre-soft:#D4A52A;
+    --sage:#687A66;
+    --sage-soft:#A6B19F;
+    --line:#D7CDB8;
+    --shadow-soft: 0 1px 2px rgba(74,21,32,0.04), 0 4px 16px rgba(74,21,32,0.06);
+    --shadow-warm: 0 8px 32px rgba(107,31,46,0.08);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:'Sarabun', sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.7;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(184,134,11,0.04), transparent 60%),
+      radial-gradient(ellipse at bottom right, rgba(107,31,46,0.04), transparent 60%);
+  }
+
+  .display-font{font-family:'Bai Jamjuree','Cormorant Garamond',serif;letter-spacing:-0.01em}
+  .serif-en{font-family:'Cormorant Garamond',serif;font-style:italic}
+
+  /* ============ HEADER ============ */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,246,238,0.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:1280px;margin:0 auto;
+    padding:14px 32px;
+    display:flex;align-items:center;gap:24px;
+  }
+  .brand{display:flex;align-items:center;gap:14px;flex:1;min-width:0}
+  .brand-mark{
+    width:42px;height:42px;flex-shrink:0;
+    background:var(--burgundy);
+    border-radius:50%;
+    display:grid;place-items:center;
+    color:var(--paper);
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-weight:600;font-size:20px;
+    box-shadow:0 0 0 4px var(--paper),0 0 0 5px var(--burgundy);
+  }
+  .brand-text{display:flex;flex-direction:column;line-height:1.2;min-width:0}
+  .brand-title{font-family:'Bai Jamjuree',sans-serif;font-weight:600;font-size:15px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .brand-sub{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--ochre);font-size:13px;letter-spacing:0.02em}
+
+  .progress-wrap{display:flex;align-items:center;gap:14px}
+  .progress-text{font-size:12px;color:var(--ink-soft);letter-spacing:0.05em;text-transform:uppercase;white-space:nowrap}
+  .progress-bar{width:180px;height:5px;background:var(--paper-warm);border-radius:3px;overflow:hidden;position:relative}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--ochre),var(--burgundy));transition:width 0.6s cubic-bezier(.65,0,.35,1);width:0%}
+
+  /* ============ LAYOUT ============ */
+  .stage{max-width:1280px;margin:0 auto;padding:32px}
+
+  /* ============ WELCOME SCREEN ============ */
+  .welcome{
+    min-height:calc(100vh - 80px);
+    display:grid;place-items:center;
+    padding:40px 32px;
+  }
+  .welcome-card{
+    max-width:680px;width:100%;
+    background:linear-gradient(180deg,#FFFCF4,#F8F1E0);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:64px 56px;
+    text-align:center;
+    position:relative;
+    box-shadow:var(--shadow-warm);
+  }
+  .welcome-card::before,.welcome-card::after{
+    content:'';position:absolute;
+    width:60px;height:60px;
+    border:1px solid var(--ochre);
+  }
+  .welcome-card::before{top:14px;left:14px;border-right:none;border-bottom:none}
+  .welcome-card::after{bottom:14px;right:14px;border-left:none;border-top:none}
+
+  .welcome-eyebrow{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--ochre);
+    font-size:18px;
+    letter-spacing:0.08em;
+    margin-bottom:20px;
+  }
+  .welcome-title{
+    font-family:'Bai Jamjuree',sans-serif;
+    font-weight:600;
+    font-size:34px;
+    line-height:1.25;
+    color:var(--burgundy-deep);
+    margin-bottom:14px;
+  }
+  .welcome-subtitle{
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    color:var(--sage);
+    font-style:italic;
+    margin-bottom:36px;
+  }
+  .welcome-divider{
+    width:60px;height:1px;background:var(--ochre);
+    margin:0 auto 36px;
+  }
+  .welcome-desc{
+    color:var(--ink-soft);font-size:15px;
+    margin-bottom:32px;line-height:1.8;
+  }
+  .name-input{
+    width:100%;padding:14px 18px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:2px;
+    font-family:'Sarabun',sans-serif;
+    font-size:16px;color:var(--ink);
+    margin-bottom:8px;
+    transition:border-color .2s;
+  }
+  .name-input:focus{outline:none;border-color:var(--burgundy)}
+  .name-hint{font-size:12px;color:var(--ink-soft);margin-bottom:24px;text-align:left}
+
+  .btn-primary{
+    background:var(--burgundy);color:var(--paper);
+    border:none;padding:14px 36px;
+    font-family:'Sarabun',sans-serif;font-weight:500;font-size:15px;
+    letter-spacing:0.05em;
+    cursor:pointer;border-radius:2px;
+    transition:all .25s;
+    display:inline-flex;align-items:center;gap:10px;
+  }
+  .btn-primary:hover{background:var(--burgundy-deep);transform:translateY(-1px);box-shadow:0 6px 20px rgba(107,31,46,0.25)}
+  .btn-primary:disabled{opacity:0.4;cursor:not-allowed;transform:none}
+  .btn-secondary{
+    background:transparent;color:var(--burgundy);
+    border:1px solid var(--burgundy);
+    padding:13px 32px;
+    font-family:'Sarabun',sans-serif;font-weight:500;font-size:15px;
+    cursor:pointer;border-radius:2px;
+    transition:all .25s;
+  }
+  .btn-secondary:hover{background:var(--burgundy);color:var(--paper)}
+
+  .welcome-meta{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:24px;margin-top:40px;padding-top:32px;
+    border-top:1px solid var(--line);
+  }
+  .meta-item{text-align:center}
+  .meta-num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:32px;color:var(--burgundy);
+    font-weight:600;
+  }
+  .meta-label{
+    font-size:11px;color:var(--ink-soft);
+    text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;
+  }
+
+  /* ============ LEARNING VIEW ============ */
+  .learn-grid{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:48px;
+    align-items:start;
+  }
+
+  .sidebar{
+    position:sticky;top:90px;
+    background:var(--paper-warm);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:24px 0;
+  }
+  .sidebar-title{
+    padding:0 24px 16px;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--ochre);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    border-bottom:1px solid var(--line);
+    margin-bottom:8px;
+  }
+  .sidebar-list{list-style:none}
+  .sidebar-item{
+    padding:12px 24px;
+    cursor:pointer;
+    display:flex;align-items:flex-start;gap:12px;
+    transition:background .2s;
+    border-left:2px solid transparent;
+    font-size:14px;color:var(--ink-soft);
+    line-height:1.4;
+  }
+  .sidebar-item:hover{background:rgba(184,134,11,0.06);color:var(--ink)}
+  .sidebar-item.active{
+    background:rgba(107,31,46,0.06);
+    border-left-color:var(--burgundy);
+    color:var(--burgundy);
+    font-weight:500;
+  }
+  .sidebar-item.completed{color:var(--sage)}
+  .module-num{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--ochre);
+    flex-shrink:0;
+    width:24px;
+    font-weight:500;
+  }
+  .check-icon{
+    width:14px;height:14px;flex-shrink:0;
+    display:none;color:var(--sage);margin-top:2px;
+  }
+  .sidebar-item.completed .check-icon{display:inline-block}
+
+  /* ============ CONTENT ============ */
+  .content{
+    background:#FFFCF4;
+    border:1px solid var(--line);
+    padding:56px 64px;
+    border-radius:2px;
+    box-shadow:var(--shadow-soft);
+    animation:fadeUp .5s ease;
+  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+  .module-eyebrow{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--ochre);
+    font-size:16px;
+    letter-spacing:0.1em;
+    margin-bottom:8px;
+  }
+  .module-title{
+    font-family:'Bai Jamjuree',sans-serif;
+    font-weight:600;
+    font-size:36px;
+    line-height:1.2;
+    color:var(--burgundy-deep);
+    margin-bottom:8px;
+  }
+  .module-subtitle{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--sage);
+    font-size:20px;
+    margin-bottom:32px;
+  }
+  .module-divider{
+    width:48px;height:1px;background:var(--ochre);
+    margin-bottom:32px;
+  }
+
+  .content h3{
+    font-family:'Bai Jamjuree',sans-serif;
+    font-size:21px;
+    font-weight:600;
+    color:var(--burgundy);
+    margin:32px 0 14px;
+    padding-bottom:8px;
+    border-bottom:1px dashed var(--line);
+  }
+  .content h4{
+    font-family:'Bai Jamjuree',sans-serif;
+    font-size:17px;
+    font-weight:600;
+    color:var(--ink);
+    margin:24px 0 10px;
+  }
+  .content p{margin-bottom:16px;color:var(--ink)}
+  .content strong{color:var(--burgundy);font-weight:600}
+  .content em{font-family:'Cormorant Garamond',serif;color:var(--ochre);font-style:italic}
+
+  .content ul,.content ol{margin:14px 0 20px 24px}
+  .content li{margin-bottom:10px;line-height:1.7}
+  .content ul li::marker{color:var(--ochre)}
+
+  .info-card{
+    background:var(--paper-warm);
+    border-left:3px solid var(--ochre);
+    padding:20px 24px;
+    margin:24px 0;
+    border-radius:2px;
+  }
+  .info-card-title{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--burgundy);
+    font-size:15px;
+    letter-spacing:0.05em;
+    margin-bottom:8px;
+  }
+
+  .stat-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:1px;background:var(--line);
+    border:1px solid var(--line);
+    margin:24px 0;
+  }
+  .stat{
+    background:#FFFCF4;padding:24px 20px;text-align:center;
+  }
+  .stat-num{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    font-size:36px;color:var(--burgundy);line-height:1;
+  }
+  .stat-label{
+    font-size:12px;color:var(--ink-soft);
+    margin-top:8px;letter-spacing:0.05em;text-transform:uppercase;
+  }
+
+  .course-list{margin:20px 0;list-style:none}
+  .course-item{
+    background:#FFFCF4;
+    border:1px solid var(--line);
+    padding:18px 22px;
+    margin-bottom:10px;
+    border-radius:2px;
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:16px;
+    align-items:center;
+    transition:all .2s;
+  }
+  .course-item:hover{border-color:var(--ochre);box-shadow:0 2px 8px rgba(184,134,11,0.08)}
+  .course-code{
+    font-family:'Cormorant Garamond',serif;
+    color:var(--ochre);font-size:15px;font-style:italic;
+    letter-spacing:0.03em;
+  }
+  .course-body{}
+  .course-name{font-weight:600;color:var(--ink);font-size:15px;margin-bottom:2px}
+  .course-name-en{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--ink-soft);font-size:14px}
+  .course-credit{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--burgundy);
+    font-weight:600;font-size:15px;
+    white-space:nowrap;
+  }
+  .course-desc{
+    grid-column:1/-1;
+    color:var(--ink-soft);
+    font-size:14px;
+    margin-top:8px;
+    padding-top:12px;
+    border-top:1px dashed var(--line);
+    line-height:1.7;
+  }
+
+  /* PLO/PEO cards */
+  .plo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:24px 0}
+  .plo-card{
+    background:#FFFCF4;
+    border:1px solid var(--line);
+    padding:22px;border-radius:2px;
+    position:relative;
+    padding-left:60px;
+  }
+  .plo-num{
+    position:absolute;left:18px;top:18px;
+    width:32px;height:32px;
+    border:1px solid var(--burgundy);
+    border-radius:50%;
+    display:grid;place-items:center;
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-weight:600;
+    color:var(--burgundy);
+    font-size:16px;
+  }
+  .plo-card h4{margin-top:0;color:var(--burgundy);font-size:14px}
+  .plo-card p{font-size:14px;color:var(--ink-soft);margin:0;line-height:1.65}
+
+  .nav-row{
+    display:flex;justify-content:space-between;align-items:center;
+    margin-top:48px;padding-top:32px;
+    border-top:1px solid var(--line);
+  }
+  .nav-row .left,.nav-row .right{display:flex;gap:12px}
+
+  /* ============ QUIZ ============ */
+  .quiz-intro{
+    text-align:center;padding:32px 0;
+  }
+  .quiz-icon{
+    width:72px;height:72px;
+    margin:0 auto 20px;
+    background:var(--burgundy);
+    border-radius:50%;
+    display:grid;place-items:center;
+    color:var(--paper);
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-weight:600;font-size:32px;
+    box-shadow:0 0 0 6px var(--paper-warm),0 0 0 7px var(--ochre);
+  }
+  .quiz-rules{
+    background:var(--paper-warm);
+    border:1px dashed var(--line);
+    padding:24px 28px;
+    margin:32px 0;
+    text-align:left;
+  }
+  .quiz-rules ul{margin:8px 0 0 20px}
+
+  .quiz-question{
+    margin-bottom:32px;
+    padding-bottom:32px;
+    border-bottom:1px dashed var(--line);
+  }
+  .quiz-question:last-child{border-bottom:none}
+  .q-num{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--ochre);
+    font-size:16px;
+    letter-spacing:0.05em;
+    margin-bottom:6px;
+  }
+  .q-text{
+    font-size:17px;
+    font-weight:500;
+    color:var(--ink);
+    margin-bottom:18px;
+    line-height:1.6;
+  }
+  .q-options{list-style:none;display:grid;gap:10px}
+  .q-option{
+    background:#FFFCF4;
+    border:1px solid var(--line);
+    padding:14px 20px;
+    border-radius:2px;
+    cursor:pointer;
+    transition:all .2s;
+    display:flex;align-items:center;gap:14px;
+  }
+  .q-option:hover{border-color:var(--ochre);background:var(--paper-warm)}
+  .q-option input{display:none}
+  .q-option-letter{
+    width:28px;height:28px;flex-shrink:0;
+    border:1px solid var(--line);
+    border-radius:50%;
+    display:grid;place-items:center;
+    font-family:'Cormorant Garamond',serif;
+    color:var(--ink-soft);
+    font-style:italic;font-weight:600;font-size:14px;
+    transition:all .2s;
+  }
+  .q-option.selected{
+    background:var(--paper-warm);
+    border-color:var(--burgundy);
+  }
+  .q-option.selected .q-option-letter{
+    background:var(--burgundy);color:var(--paper);border-color:var(--burgundy);
+  }
+  .q-option.correct{border-color:var(--sage);background:rgba(104,122,102,0.08)}
+  .q-option.correct .q-option-letter{background:var(--sage);color:var(--paper);border-color:var(--sage)}
+  .q-option.incorrect{border-color:#B23A3A;background:rgba(178,58,58,0.06)}
+  .q-option.incorrect .q-option-letter{background:#B23A3A;color:var(--paper);border-color:#B23A3A}
+
+  /* ============ RESULT ============ */
+  .result-card{text-align:center;padding:40px 0}
+  .result-score{
+    font-family:'Cormorant Garamond',serif;
+    font-size:72px;
+    font-weight:600;
+    color:var(--burgundy);
+    line-height:1;
+    margin:16px 0 8px;
+  }
+  .result-score .total{color:var(--ink-soft);font-size:36px}
+  .result-msg{
+    font-family:'Bai Jamjuree',sans-serif;
+    font-size:24px;font-weight:600;
+    margin:20px 0 12px;
+  }
+  .result-msg.pass{color:var(--sage)}
+  .result-msg.fail{color:var(--burgundy)}
+  .result-desc{color:var(--ink-soft);margin-bottom:24px;font-size:15px}
+
+  /* ============ CERTIFICATE ============ */
+  .cert-stage{
+    background:linear-gradient(160deg,#3A0F18 0%,#1A0809 100%);
+    min-height:calc(100vh - 80px);
+    padding:48px 24px;
+    display:flex;flex-direction:column;align-items:center;
+    gap:24px;
+  }
+  .cert-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .cert-actions .btn-primary{background:var(--ochre);color:var(--burgundy-deep)}
+  .cert-actions .btn-primary:hover{background:var(--ochre-soft)}
+  .cert-actions .btn-secondary{color:var(--ochre);border-color:var(--ochre)}
+  .cert-actions .btn-secondary:hover{background:var(--ochre);color:var(--burgundy-deep)}
+
+  .certificate{
+    width:100%;max-width:920px;
+    aspect-ratio:1.414/1;
+    background:linear-gradient(180deg,#FFFDF5,#F8F1DF);
+    position:relative;
+    padding:64px 72px;
+    box-shadow:0 30px 80px rgba(0,0,0,0.5);
+    color:var(--ink);
+    font-family:'Sarabun',sans-serif;
+    display:flex;flex-direction:column;
+  }
+  .certificate::before{
+    content:'';position:absolute;
+    inset:18px;border:1px solid var(--ochre);
+    pointer-events:none;
+  }
+  .certificate::after{
+    content:'';position:absolute;
+    inset:24px;border:1px dashed var(--ochre-soft);
+    pointer-events:none;
+  }
+  .cert-corner{
+    position:absolute;width:48px;height:48px;
+    border:2px solid var(--burgundy);
+  }
+  .cert-corner.tl{top:36px;left:36px;border-right:none;border-bottom:none}
+  .cert-corner.tr{top:36px;right:36px;border-left:none;border-bottom:none}
+  .cert-corner.bl{bottom:36px;left:36px;border-right:none;border-top:none}
+  .cert-corner.br{bottom:36px;right:36px;border-left:none;border-top:none}
+
+  .cert-header{text-align:center;padding-top:8px}
+  .cert-seal{
+    width:64px;height:64px;
+    background:var(--burgundy);
+    border-radius:50%;
+    margin:0 auto 14px;
+    display:grid;place-items:center;
+    color:var(--ochre);
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-weight:600;font-size:28px;
+    box-shadow:0 0 0 4px #FFFDF5,0 0 0 5px var(--ochre);
+  }
+  .cert-eyebrow{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--ochre);
+    font-size:16px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  .cert-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:42px;
+    font-weight:600;
+    color:var(--burgundy-deep);
+    line-height:1.1;
+    margin-bottom:6px;
+  }
+  .cert-subtitle{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--sage);
+    font-size:18px;
+  }
+  .cert-divider{
+    width:80px;height:1px;background:var(--ochre);
+    margin:14px auto;
+  }
+
+  .cert-body{
+    flex:1;text-align:center;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:8px 24px;
+  }
+  .cert-presented{
+    font-size:13px;color:var(--ink-soft);
+    letter-spacing:0.2em;text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .cert-name{
+    font-family:'Bai Jamjuree',sans-serif;
+    font-weight:600;
+    font-size:36px;
+    color:var(--burgundy-deep);
+    margin-bottom:6px;
+    border-bottom:1px solid var(--ochre);
+    padding-bottom:14px;
+    display:inline-block;
+    min-width:60%;
+  }
+  .cert-text{
+    font-size:14px;color:var(--ink-soft);
+    margin:14px 0 18px;
+    max-width:520px;
+    margin-left:auto;margin-right:auto;
+    line-height:1.7;
+  }
+  .cert-course{
+    font-family:'Bai Jamjuree',sans-serif;
+    font-weight:600;
+    font-size:18px;
+    color:var(--ink);
+    margin-bottom:6px;
+  }
+  .cert-course-en{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    color:var(--sage);
+    font-size:15px;
+  }
+
+  .cert-footer{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    gap:24px;
+    align-items:end;
+    padding-top:14px;
+    margin-top:auto;
+  }
+  .cert-sig{text-align:center}
+  .cert-sig-line{
+    border-top:1px solid var(--ink-soft);
+    padding-top:6px;font-size:12px;color:var(--ink-soft);
+    letter-spacing:0.1em;
+  }
+  .cert-sig-name{font-weight:600;font-size:13px;color:var(--ink)}
+  .cert-stamp{
+    width:84px;height:84px;
+    border:2px solid var(--burgundy);
+    border-radius:50%;
+    display:grid;place-items:center;
+    text-align:center;
+    color:var(--burgundy);
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-size:11px;
+    line-height:1.3;
+    transform:rotate(-8deg);
+    position:relative;
+  }
+  .cert-stamp::before{
+    content:'';position:absolute;
+    inset:4px;border:1px dashed var(--burgundy);
+    border-radius:50%;
+  }
+  .cert-stamp strong{font-size:13px;display:block;font-style:normal}
+
+  /* PRINT */
+  @media print{
+    body{background:#fff}
+    .topbar,.cert-stage>*:not(.certificate){display:none!important}
+    .cert-stage{background:#fff;padding:0;min-height:auto}
+    .certificate{box-shadow:none;max-width:none;width:100%;aspect-ratio:auto;page-break-inside:avoid}
+  }
+
+  /* RESPONSIVE */
+  @media (max-width:900px){
+    .learn-grid{grid-template-columns:1fr;gap:24px}
+    .sidebar{position:relative;top:auto}
+    .content{padding:32px 24px}
+    .module-title{font-size:28px}
+    .welcome-card{padding:40px 28px}
+    .welcome-title{font-size:26px}
+    .stage{padding:20px}
+    .topbar-inner{padding:12px 20px;gap:12px;flex-wrap:wrap}
+    .progress-bar{width:120px}
+    .cert-title{font-size:30px}
+    .cert-name{font-size:24px}
+    .certificate{padding:40px 32px;aspect-ratio:auto}
+    .cert-footer{grid-template-columns:1fr;gap:16px}
+  }
+
+  @media (max-width:600px){
+    .course-item{grid-template-columns:1fr;text-align:left}
+    .welcome-meta{grid-template-columns:1fr;gap:16px}
+    .nav-row{flex-direction:column-reverse;gap:12px;align-items:stretch}
+    .nav-row .left,.nav-row .right{width:100%}
+    .nav-row button{flex:1}
+  }
+
+  /* small icon */
+  .icon{display:inline-block;width:1em;height:1em;vertical-align:-2px}
+</style>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">M</div>
+      <div class="brand-text">
+        <div class="brand-title">หลักสูตรพยาบาลศาสตรมหาบัณฑิต สาขาวิชาการผดุงครรภ์</div>
+        <div class="brand-sub">Master of Nursing Science · Midwifery</div>
+      </div>
+    </div>
+    <div class="progress-wrap" id="progressWrap" style="display:none">
+      <span class="progress-text"><span id="progNum">0</span> / 12 บทเรียน</span>
+      <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
+    </div>
+  </div>
+</header>
+
+<main id="root"></main>
+
+<script>
+/* =========================================================
+   STATE
+========================================================= */
+const state = {
+  studentName: '',
+  view: 'welcome', // welcome | learn | quiz | result | certificate
+  currentModule: 0,
+  completed: new Set(),
+  quizAnswers: {},
+  quizSubmitted: false,
+  score: 0
+};
+
+/* =========================================================
+   MODULE CONTENT
+========================================================= */
+const modules = [
+  {
+    title: 'ยินดีต้อนรับสู่หลักสูตร',
+    subtitle: 'A Journey into Advanced Midwifery',
+    body: `
+      <p>ยินดีต้อนรับเข้าสู่ระบบเรียนรู้ออนไลน์ของ <strong>หลักสูตรพยาบาลศาสตรมหาบัณฑิต สาขาวิชาการผดุงครรภ์</strong> คณะพยาบาลศาสตร์ สถาบันพระบรมราชชนก</p>
+
+      <p>หลักสูตรนี้ออกแบบมาเพื่อพัฒนาพยาบาลผดุงครรภ์ขั้นสูงที่มีสมรรถนะในการดูแลสตรีตั้งแต่<em>ระยะก่อนตั้งครรภ์ จนถึงหลังคลอด</em> รวมถึงทารกในครรภ์ ทารกแรกเกิด และครอบครัว ทั้งในภาวะปกติและภาวะที่มีความซับซ้อน บนฐานของหลักฐานเชิงประจักษ์ เทคโนโลยีดิจิทัลที่ทันสมัย และจิตวิญญาณของการดูแลด้วยหัวใจความเป็นมนุษย์</p>
+
+      <h3>คุณจะได้เรียนรู้อะไรในระบบนี้</h3>
+      <ul>
+        <li>ภาพรวม ปรัชญา และเอกลักษณ์ของหลักสูตร</li>
+        <li>วัตถุประสงค์ของหลักสูตร (PEOs) และผลลัพธ์การเรียนรู้ระดับหลักสูตร (PLOs)</li>
+        <li>โครงสร้างหลักสูตรทั้ง 36 หน่วยกิต พร้อมรายวิชาแต่ละหมวด</li>
+        <li>แผนการศึกษาตลอด 2 ปี</li>
+        <li>คุณสมบัติผู้สมัครและกระบวนการรับเข้า</li>
+        <li>เกณฑ์การสำเร็จการศึกษา</li>
+      </ul>
+
+      <div class="info-card">
+        <div class="info-card-title">วิธีการเรียนรู้</div>
+        <p style="margin:0">เลือกบทเรียนจากแถบด้านซ้ายตามลำดับ ระบบจะบันทึกความก้าวหน้าให้โดยอัตโนมัติ เมื่อเรียนครบทั้ง 12 บทเรียนแล้ว ระบบจะเปิดให้ทำแบบทดสอบรวบยอดเพื่อรับ <strong>ประกาศนียบัตร</strong> หากตอบถูกตั้งแต่ <strong>80% ขึ้นไป</strong></p>
+      </div>
+
+      <p>ใช้เวลาเรียนรู้ประมาณ <em>30–45 นาที</em> สำหรับการอ่านเนื้อหาทั้งหมด แล้วค่อยทำแบบทดสอบเมื่อพร้อม</p>
+    `
+  },
+  {
+    title: 'ภาพรวมหลักสูตร',
+    subtitle: 'Programme at a Glance',
+    body: `
+      <p>หลักสูตรพยาบาลศาสตรมหาบัณฑิต สาขาวิชาการผดุงครรภ์ เป็นหลักสูตรในกำกับของ<strong>คณะพยาบาลศาสตร์ สถาบันพระบรมราชชนก</strong> ผ่านการอนุมัติจากสภาการพยาบาล (ครั้งที่ 2) เมื่อวันที่ 22 กุมภาพันธ์ พ.ศ. 2568</p>
+
+      <div class="stat-grid">
+        <div class="stat"><div class="stat-num">36</div><div class="stat-label">หน่วยกิต</div></div>
+        <div class="stat"><div class="stat-num">2</div><div class="stat-label">ปีการศึกษา</div></div>
+        <div class="stat"><div class="stat-num">6</div><div class="stat-label">PLOs</div></div>
+        <div class="stat"><div class="stat-num">15</div><div class="stat-label">รายวิชา</div></div>
+      </div>
+
+      <h3>จุดเน้นของหลักสูตร</h3>
+      <ul>
+        <li>เน้นบทบาทของ<strong>ผดุงครรภ์ในฐานะเจ้าของไข้</strong> ในการดูแลสตรีระยะตั้งครรภ์จนถึงหลังคลอดและทารกแรกเกิดที่มีภาวะปกติ</li>
+        <li>เน้น<strong>การจัดการการดูแล</strong>สตรีตั้งแต่ระยะก่อนตั้งครรภ์ที่มีภาวะแทรกซ้อนหรือปัญหาซับซ้อนในคลินิก</li>
+        <li>เน้น<strong>สร้างผลงานวิจัยและนวัตกรรม</strong>ในการพัฒนาคุณภาพการผดุงครรภ์</li>
+        <li>เน้น<strong>พัฒนาทักษะภาวะผู้นำ</strong>ในการทำงานเป็นทีมกับสหวิชาชีพ</li>
+        <li>เชื่อมโยงการบริการผดุงครรภ์กับ<em>ระบบปฐมภูมิ (Primary Care Midwifery)</em> ตามบริบทพื้นที่และความหลากหลายทางวัฒนธรรม</li>
+      </ul>
+
+      <h3>รูปแบบการจัดการศึกษา</h3>
+      <ul>
+        <li>ระบบ <strong>ทวิภาค</strong> — 1 ปีการศึกษา แบ่งเป็น 2 ภาคการศึกษาปกติ (ภาคละไม่น้อยกว่า 15 สัปดาห์) และ 1 ภาคฤดูร้อน (ไม่น้อยกว่า 8 สัปดาห์)</li>
+        <li>จัดการเรียนการสอน<strong>แบบเต็มเวลา</strong> ไม่เกิน 15 ชั่วโมงต่อสัปดาห์</li>
+        <li>รูปแบบ <strong>Classroom and Online Education</strong></li>
+        <li>ภาคการศึกษาที่ 1: มิถุนายน – ตุลาคม</li>
+        <li>ภาคการศึกษาที่ 2: พฤศจิกายน – มีนาคม</li>
+        <li>ภาคฤดูร้อน: เมษายน – พฤษภาคม</li>
+      </ul>
+
+      <div class="info-card">
+        <div class="info-card-title">เอกลักษณ์ของหลักสูตร</div>
+        <p style="margin:0">มุ่งผลิตมหาบัณฑิตที่เป็น<strong>ผู้นำในการพัฒนาคุณภาพการผดุงครรภ์</strong> สามารถส่งเสริม ป้องกัน คัดกรอง และประเมินภาวะสุขภาพมารดา-ทารก ตามบริบทพื้นที่และความหลากหลายทางวัฒนธรรม โดยเชื่อมโยงการบริการผดุงครรภ์กับระบบบริการสุขภาพปฐมภูมิ</p>
+      </div>
+    `
+  },
+  {
+    title: 'วัตถุประสงค์ของหลักสูตร',
+    subtitle: 'Programme Educational Objectives · PEOs',
+    body: `
+      <p>หลักสูตรนี้มุ่งผลิตมหาบัณฑิตที่มีคุณลักษณะที่พึงประสงค์ ครอบคลุม 6 มิติของการเป็นพยาบาลผดุงครรภ์ขั้นสูง ดังนี้</p>
+
+      <div class="plo-grid">
+        <div class="plo-card">
+          <div class="plo-num">1</div>
+          <h4>วิเคราะห์ความรู้ทางการผดุงครรภ์</h4>
+          <p>วิเคราะห์ความรู้ทางการผดุงครรภ์ ทฤษฎีการพยาบาล และแนวคิดผู้ประกอบการทางสุขภาพ ในการจัดการดูแลสตรีตั้งแต่ระยะก่อนตั้งครรภ์ จนถึงหลังคลอด ทารกในครรภ์และทารกแรกเกิด ในภาวะปกติ เสี่ยงสูง เบี่ยงเบน แทรกซ้อน วิกฤต ฉุกเฉิน หรือภาวะคาดการณ์ไม่ได้</p>
+        </div>
+        <div class="plo-card">
+          <div class="plo-num">2</div>
+          <h4>ปฏิบัติการผดุงครรภ์ขั้นสูง</h4>
+          <p>ปฏิบัติการผดุงครรภ์ขั้นสูงโดย<em>บูรณาการศาสตร์ทางการผดุงครรภ์และหลักฐานเชิงประจักษ์</em> ในการดูแลสตรีและทารก แบบองค์รวมด้วยหัวใจความเป็นมนุษย์ ตามมาตรฐานวิชาการและวิชาชีพ ทั้งในสถานบริการสุขภาพและในชุมชน</p>
+        </div>
+        <div class="plo-card">
+          <div class="plo-num">3</div>
+          <h4>ทำวิจัยด้านการผดุงครรภ์</h4>
+          <p>ทำวิจัยด้านการผดุงครรภ์ในการดูแลสตรีและทารกในทุกภาวะ ทั้งในสถานบริการสุขภาพและในชุมชน ตามมาตรฐานการวิจัย เพื่อ<em>แก้ปัญหาและพัฒนาคุณภาพการผดุงครรภ์</em></p>
+        </div>
+        <div class="plo-card">
+          <div class="plo-num">4</div>
+          <h4>ใช้เทคโนโลยีดิจิทัล</h4>
+          <p>ใช้<strong>เทคโนโลยีดิจิทัลและนวัตกรรมที่ทันสมัย</strong> ในการพัฒนาคุณภาพงานด้านการผดุงครรภ์ พร้อมรับความเปลี่ยนแปลงของบริบทและสถานการณ์</p>
+        </div>
+        <div class="plo-card">
+          <div class="plo-num">5</div>
+          <h4>มีจริยธรรมและจรรยาบรรณ</h4>
+          <p>มี<em>จริยธรรมและจรรยาบรรณทางวิชาการและวิชาชีพ</em> มีทักษะการตัดสินใจเชิงจริยธรรม โดยคำนึงถึงความหลากหลายทางวัฒนธรรมในการปฏิบัติการผดุงครรภ์</p>
+        </div>
+        <div class="plo-card">
+          <div class="plo-num">6</div>
+          <h4>แสดงภาวะผู้นำ</h4>
+          <p>แสดง<strong>ภาวะผู้นำที่ริเริ่มการเปลี่ยนแปลง</strong>ในการพัฒนาคุณภาพบริการด้านการผดุงครรภ์ การจัดการปัญหา การส่งเสริม ป้องกัน และปกป้อง โดยบูรณาการการทำงานร่วมกับสหสาขาวิชาชีพ</p>
+        </div>
+      </div>
+    `
+  },
+  {
+    title: 'ผลลัพธ์การเรียนรู้ระดับหลักสูตร',
+    subtitle: 'Programme Learning Outcomes · PLOs',
+    body: `
+      <p>เมื่อสำเร็จการศึกษาจากหลักสูตรนี้ <strong>มหาบัณฑิตจะสามารถ</strong>:</p>
+
+      <div class="plo-grid">
+        <div class="plo-card">
+          <div class="plo-num">1</div>
+          <h4>PLO 1 — วิเคราะห์ศาสตร์ทางการผดุงครรภ์</h4>
+          <p>วิเคราะห์ศาสตร์ทางการผดุงครรภ์และศาสตร์ที่เกี่ยวข้อง ในการ<em>ออกแบบการดูแล</em>สตรีระยะก่อนตั้งครรภ์ ตั้งครรภ์ คลอด หลังคลอด ทารกแรกเกิดและครอบครัว ในทุกภาวะ ที่มีปัญหาสุขภาพซับซ้อนหรือคาดการณ์ไม่ได้</p>
+        </div>
+        <div class="plo-card">
+          <div class="plo-num">2</div>
+          <h4>PLO 2 — ปฏิบัติการผดุงครรภ์ขั้นสูง</h4>
+          <p>ปฏิบัติการผดุงครรภ์ขั้นสูงในการจัดการดูแลสตรีและทารก แบบ<strong>องค์รวมด้วยหัวใจความเป็นมนุษย์</strong> ตามมาตรฐานวิชาการและวิชาชีพ ในสถานบริการสุขภาพทุกระดับและชุมชน</p>
+        </div>
+        <div class="plo-card">
+          <div class="plo-num">3</div>
+          <h4>PLO 3 — ทำวิจัยและนวัตกรรม</h4>
+          <p>ทำวิจัยเพื่อ<em>แก้ปัญหาและพัฒนาคุณภาพการผดุงครรภ์</em> ที่เกี่ยวข้องกับการส่งเสริมสุขภาพและป้องกันภาวะแทรกซ้อนในมารดาและทารก</p>
+        </div>
+        <div class="plo-card">
+          <div class="plo-num">4</div>
+          <h4>PLO 4 — ใช้เทคโนโลยีดิจิทัลและ AI</h4>
+          <p>ใช้<strong>เทคโนโลยีดิจิทัลและนวัตกรรมที่ทันสมัย</strong> รวมถึง AI ในการเรียนรู้และการปฏิบัติงานตามบริบทและสถานการณ์ที่เปลี่ยนแปลง อย่างมีจริยธรรม</p>
+        </div>
+        <div class="plo-card">
+          <div class="plo-num">5</div>
+          <h4>PLO 5 — จริยธรรมและจรรยาบรรณ</h4>
+          <p>แสดงออกถึง<em>พฤติกรรมจริยธรรมและจรรยาบรรณ</em>ทางวิชาการและวิชาชีพอย่างต่อเนื่อง</p>
+        </div>
+        <div class="plo-card">
+          <div class="plo-num">6</div>
+          <h4>PLO 6 — ภาวะผู้นำ</h4>
+          <p>แสดงออกถึง<strong>การมีภาวะผู้นำในการพัฒนาคุณภาพการผดุงครรภ์</strong> สามารถวางแผน ประสานงาน และขับเคลื่อนการพัฒนาระบบบริการได้อย่างมีประสิทธิภาพ</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-title">การพัฒนาผ่านระดับการเรียนรู้</div>
+        <p style="margin:0">PLOs ทั้งหมดได้รับการพัฒนาผ่าน 4 ระดับตาม Bloom's Taxonomy ในรายวิชาต่างๆ:<br>
+        <strong>I</strong> = Introduced (พื้นฐาน) ·
+        <strong>R</strong> = Reinforced (เสริมความรู้) ·
+        <strong>P</strong> = Practice (ฝึกปฏิบัติ) ·
+        <strong>M</strong> = Mastery (เชี่ยวชาญ)</p>
+      </div>
+    `
+  },
+  {
+    title: 'โครงสร้างหลักสูตร',
+    subtitle: 'Curriculum Structure · 36 Credits',
+    body: `
+      <p>หลักสูตรนี้เป็น <strong>แผน 1 แบบวิชาการ</strong> มีโครงสร้างสอดคล้องกับเกณฑ์มาตรฐานหลักสูตรระดับบัณฑิตศึกษา พ.ศ. 2565 รวมไม่น้อยกว่า <strong>36 หน่วยกิต</strong></p>
+
+      <div class="stat-grid">
+        <div class="stat"><div class="stat-num">8</div><div class="stat-label">หมวดวิชาแกน</div></div>
+        <div class="stat"><div class="stat-num">13</div><div class="stat-label">หมวดวิชาเฉพาะ</div></div>
+        <div class="stat"><div class="stat-num">3</div><div class="stat-label">หมวดวิชาเลือก</div></div>
+        <div class="stat"><div class="stat-num">12</div><div class="stat-label">วิทยานิพนธ์</div></div>
+      </div>
+
+      <h3>หมวดที่ 1 · วิชาแกน (8 หน่วยกิต)</h3>
+      <p>วิชาที่วางรากฐานทางทฤษฎี ระบบ และระเบียบวิธีวิจัยทางการพยาบาล สำหรับมหาบัณฑิตทุกสาขาวิชา</p>
+
+      <h3>หมวดที่ 2 · วิชาเฉพาะ (13 หน่วยกิต)</h3>
+      <p>วิชาที่เน้นเนื้อหาเฉพาะทางการผดุงครรภ์ ทั้งภาคทฤษฎีและภาคปฏิบัติ ครอบคลุมระยะตั้งครรภ์ คลอด หลังคลอด และทารกแรกเกิด</p>
+
+      <h3>หมวดที่ 3 · วิชาเลือก (3 หน่วยกิต)</h3>
+      <p>นักศึกษาสามารถเลือกเรียนตามความสนใจ จาก 5 รายวิชา เช่น การพยาบาลทางไกล การให้คำปรึกษา การประกอบการด้านสุขภาพ ฯลฯ</p>
+
+      <h3>หมวดที่ 4 · วิทยานิพนธ์ (12 หน่วยกิต)</h3>
+      <p>นักศึกษาทำงานวิจัยภายใต้การกำกับของอาจารย์ที่ปรึกษา ตั้งแต่การพัฒนาโครงร่างจนถึงการตีพิมพ์เผยแพร่ในวารสารระดับชาติหรือนานาชาติ</p>
+
+      <div class="info-card">
+        <div class="info-card-title">การพัฒนาคุณลักษณะพิเศษ</div>
+        <p style="margin:0">หลักสูตรเน้นการพัฒนาคุณลักษณะพิเศษของนักศึกษา ได้แก่ <strong>ภาวะผู้นำในการพัฒนาคุณภาพการผดุงครรภ์</strong>, <strong>ทักษะการใช้เทคโนโลยีดิจิทัลและ AI</strong>, <strong>ทักษะการสื่อสารภาษาอังกฤษเชิงวิชาชีพ</strong>, และ <strong>การทำงานเป็นทีมกับสหวิชาชีพ</strong></p>
+      </div>
+    `
+  },
+  {
+    title: 'หมวดวิชาแกน',
+    subtitle: 'Core Courses · 8 Credits',
+    body: `
+      <p>หมวดวิชาแกนวางรากฐานทางความคิดและการวิจัย ประกอบด้วย <strong>4 รายวิชา รวม 8 หน่วยกิต</strong></p>
+
+      <ul class="course-list">
+        <li class="course-item">
+          <span class="course-code">0100500101</span>
+          <div class="course-body">
+            <div class="course-name">แนวคิดและทฤษฎีทางการพยาบาล</div>
+            <div class="course-name-en">Nursing Concepts and Theories</div>
+          </div>
+          <span class="course-credit">2(2-0-4)</span>
+          <div class="course-desc">ทฤษฎีทางการพยาบาลและทฤษฎีที่เกี่ยวข้อง การวิเคราะห์และประเมินทฤษฎีทางการพยาบาลที่เลือกสรร และการประยุกต์ใช้ทฤษฎีและแนวคิดทางการพยาบาลในการปฏิบัติ</div>
+        </li>
+
+        <li class="course-item">
+          <span class="course-code">0100500102</span>
+          <div class="course-body">
+            <div class="course-name">ระบบสุขภาพ ภาวะผู้นำ กฎหมาย และจริยธรรมทางการพยาบาล</div>
+            <div class="course-name-en">Health System, Leadership, Laws, and Ethics in Nursing</div>
+          </div>
+          <span class="course-credit">2(2-0-4)</span>
+          <div class="course-desc">นโยบายและระบบสุขภาพ ปัจจัยกำหนดสุขภาพ เศรษฐศาสตร์สุขภาพ แนวคิดและทฤษฎีภาวะผู้นำ การพัฒนาภาวะผู้นำทางการพยาบาล การจัดการทางการพยาบาล แนวคิดผู้ประกอบการทางสุขภาพ กฎหมายและจริยธรรมที่เกี่ยวข้องกับวิชาชีพ และการตัดสินใจเชิงจริยธรรม</div>
+        </li>
+
+        <li class="course-item">
+          <span class="course-code">0100500103</span>
+          <div class="course-body">
+            <div class="course-name">วิจัยและการใช้หลักฐานเชิงประจักษ์ทางการพยาบาล</div>
+            <div class="course-name-en">Research and Evidence-Based Nursing</div>
+          </div>
+          <span class="course-credit">2(2-0-4)</span>
+          <div class="course-desc">การออกแบบและระเบียบวิธีวิจัย การพัฒนาโครงร่างวิจัย การเขียนและเผยแพร่ผลงานวิจัย จรรยาบรรณนักวิจัย หลักการประเมินและใช้หลักฐานเชิงประจักษ์ แนวคิดการพัฒนานวัตกรรม และการใช้เทคโนโลยีดิจิทัล</div>
+        </li>
+
+        <li class="course-item">
+          <span class="course-code">0100500104</span>
+          <div class="course-body">
+            <div class="course-name">สถิติประยุกต์ในการวิจัยทางการพยาบาล</div>
+            <div class="course-name-en">Applied Statistics in Nursing Research</div>
+          </div>
+          <span class="course-credit">2(1-2-3)</span>
+          <div class="course-desc">สถิติทางการวิจัย ตัวแปรและระดับการวัด การจัดการข้อมูล การเลือกใช้สถิติเชิงพรรณนาและสถิติเชิงอ้างอิงสำหรับหาความสัมพันธ์ เปรียบเทียบและอิทธิพล การวิเคราะห์ด้วยโปรแกรมคอมพิวเตอร์ และการแปลผล</div>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: 'หมวดวิชาเฉพาะ',
+    subtitle: 'Major Courses · 13 Credits',
+    body: `
+      <p>หมวดวิชาเฉพาะเน้นเนื้อหาเฉพาะทางการผดุงครรภ์ ทั้งภาคทฤษฎีและภาคปฏิบัติ ประกอบด้วย <strong>6 รายวิชา รวม 13 หน่วยกิต</strong></p>
+
+      <ul class="course-list">
+        <li class="course-item">
+          <span class="course-code">0100502105</span>
+          <div class="course-body">
+            <div class="course-name">พยาธิสรีรวิทยาและเภสัชวิทยาทางการผดุงครรภ์</div>
+            <div class="course-name-en">Pathophysiology and Pharmacology in Midwifery</div>
+          </div>
+          <span class="course-credit">2(2-0-4)</span>
+          <div class="course-desc">พยาธิสรีรวิทยา เภสัชจลนศาสตร์และเภสัชพลศาสตร์ การปฏิสนธิ การเจริญเติบโตของเซลล์ ตัวอ่อน ทารกและรก ความผิดปกติทางพันธุกรรม การเปลี่ยนแปลงทางสรีรวิทยาในระยะตั้งครรภ์ คลอด หลังคลอด และทารกแรกเกิด การใช้ยาอย่างสมเหตุผล</div>
+        </li>
+
+        <li class="course-item">
+          <span class="course-code">0100502106</span>
+          <div class="course-body">
+            <div class="course-name">การผดุงครรภ์ในระยะตั้งครรภ์และหลังคลอด</div>
+            <div class="course-name-en">Midwifery in Pregnancy and Postpartum</div>
+          </div>
+          <span class="course-credit">2(2-0-4)</span>
+          <div class="course-desc">การประเมินและจัดการดูแลสตรีในระยะตั้งครรภ์และหลังคลอด ทั้งภาวะปกติ เสี่ยงสูง แทรกซ้อน วิกฤต และฉุกเฉิน รวมถึงการดูแลทารกแรกเกิดและครอบครัว</div>
+        </li>
+
+        <li class="course-item">
+          <span class="course-code">0100502107</span>
+          <div class="course-body">
+            <div class="course-name">การผดุงครรภ์ในระยะคลอด</div>
+            <div class="course-name-en">Midwifery Care During Labor</div>
+          </div>
+          <span class="course-credit">2(2-0-4)</span>
+          <div class="course-desc">การประเมินและการจัดการดูแลสตรีในระยะคลอด การประเมินภาวะของมารดาและทารก การจัดการความเจ็บปวด การดูแลในภาวะคลอดยากและภาวะฉุกเฉินทางสูติกรรม</div>
+        </li>
+
+        <li class="course-item">
+          <span class="course-code">0100502108</span>
+          <div class="course-body">
+            <div class="course-name">ปฏิบัติการผดุงครรภ์ในระยะตั้งครรภ์และหลังคลอด</div>
+            <div class="course-name-en">Midwifery in Pregnancy and Postpartum Practicum</div>
+          </div>
+          <span class="course-credit">3(0-9-3)</span>
+          <div class="course-desc">ฝึกปฏิบัติการผดุงครรภ์ขั้นสูงในการดูแลสตรีระยะตั้งครรภ์และหลังคลอด ทั้งในสถานบริการสุขภาพและชุมชน บูรณาการความรู้ทางทฤษฎีและหลักฐานเชิงประจักษ์</div>
+        </li>
+
+        <li class="course-item">
+          <span class="course-code">0100502109</span>
+          <div class="course-body">
+            <div class="course-name">ปฏิบัติการผดุงครรภ์ในระยะคลอด</div>
+            <div class="course-name-en">Midwifery Care During Labor Practicum</div>
+          </div>
+          <span class="course-credit">3(0-9-3)</span>
+          <div class="course-desc">ฝึกปฏิบัติการดูแลสตรีในระยะคลอด ทั้งภาวะปกติและภาวะที่มีความซับซ้อน การจัดการความเจ็บปวด และการดูแลในภาวะฉุกเฉิน</div>
+        </li>
+
+        <li class="course-item">
+          <span class="course-code">0100500110</span>
+          <div class="course-body">
+            <div class="course-name">สัมมนาทางการผดุงครรภ์</div>
+            <div class="course-name-en">Seminar in Midwifery</div>
+          </div>
+          <span class="course-credit">1(0-2-1)</span>
+          <div class="course-desc">วิเคราะห์สถานการณ์และประเด็นทางการผดุงครรภ์ที่ทันสมัย นโยบายและแผนยุทธศาสตร์ระดับชาติ Service Plan สาขาแม่และเด็ก ระบบบริการสุขภาพและการพัฒนาคุณภาพการผดุงครรภ์</div>
+        </li>
+      </ul>
+    `
+  },
+  {
+    title: 'หมวดวิชาเลือก',
+    subtitle: 'Elective Courses · 3 Credits',
+    body: `
+      <p>นักศึกษาเลือกเรียนตามความสนใจและความต้องการในการพัฒนาตนเอง โดยเลือกให้รวมไม่น้อยกว่า <strong>3 หน่วยกิต</strong> จาก 5 รายวิชาต่อไปนี้</p>
+
+      <ul class="course-list">
+        <li class="course-item">
+          <span class="course-code">0100500111</span>
+          <div class="course-body">
+            <div class="course-name">การให้คำปรึกษาและพัฒนาทักษะการดูแลตนเองของผู้รับบริการ</div>
+            <div class="course-name-en">Counseling and Client Self-Care Development</div>
+          </div>
+          <span class="course-credit">2(2-0-4)</span>
+          <div class="course-desc">เทคนิคและทักษะการให้คำปรึกษา การพัฒนาความรอบรู้ด้านสุขภาพ และการเสริมพลังให้ผู้รับบริการสามารถดูแลตนเองได้</div>
+        </li>
+
+        <li class="course-item">
+          <span class="course-code">0100500112</span>
+          <div class="course-body">
+            <div class="course-name">การเรียนการสอนทางการพยาบาล</div>
+            <div class="course-name-en">Learning and Teaching in Nursing</div>
+          </div>
+          <span class="course-credit">3(3-0-6)</span>
+          <div class="course-desc">หลักการและแนวคิดทางการศึกษาพยาบาล การออกแบบการเรียนการสอน การประเมินผลการเรียนรู้ และการใช้สื่อและเทคโนโลยีในการสอน</div>
+        </li>
+
+        <li class="course-item">
+          <span class="course-code">0100500113</span>
+          <div class="course-body">
+            <div class="course-name">การประกอบการด้านสุขภาพและการพยาบาล</div>
+            <div class="course-name-en">Health and Nursing Entrepreneurship</div>
+          </div>
+          <span class="course-credit">1(1-0-2)</span>
+          <div class="course-desc">แนวคิดผู้ประกอบการในวิชาชีพการพยาบาล การพัฒนาธุรกิจสุขภาพ และการสร้างมูลค่าเพิ่มจากบริการสุขภาพ</div>
+        </li>
+
+        <li class="course-item">
+          <span class="course-code">0100500114</span>
+          <div class="course-body">
+            <div class="course-name">การพยาบาลทางไกลและการสื่อสารสุขภาพ</div>
+            <div class="course-name-en">Telenursing and Health Communication</div>
+          </div>
+          <span class="course-credit">2(2-0-4)</span>
+          <div class="course-desc">หลักการและการประยุกต์ใช้เทคโนโลยีในการพยาบาลทางไกล mHealth digital health intervention และการสื่อสารสุขภาพในยุคดิจิทัล</div>
+        </li>
+
+        <li class="course-item">
+          <span class="course-code">0100502115</span>
+          <div class="course-body">
+            <div class="course-name">การดูแลสุขภาพสตรี</div>
+            <div class="course-name-en">Women's Health Care</div>
+          </div>
+          <span class="course-credit">3(3-0-6)</span>
+          <div class="course-desc">การดูแลสุขภาพสตรีในทุกช่วงวัย การส่งเสริมสุขภาพ การป้องกันโรค และประเด็นทางสุขภาพที่เกี่ยวข้องกับเพศและสังคม</div>
+        </li>
+      </ul>
+
+      <div class="info-card">
+        <div class="info-card-title">การเลือกวิชา</div>
+        <p style="margin:0">นักศึกษาสามารถเลือกรายวิชาให้สอดคล้องกับ<em>ความสนใจในงานวิจัย</em> หรือทิศทางการพัฒนาวิชาชีพในอนาคต โดยปรึกษากับอาจารย์ที่ปรึกษาทางวิชาการ</p>
+      </div>
+    `
+  },
+  {
+    title: 'วิทยานิพนธ์',
+    subtitle: 'Thesis · 12 Credits',
+    body: `
+      <p>วิทยานิพนธ์เป็นหัวใจสำคัญของการศึกษาระดับบัณฑิตศึกษา นักศึกษาจะได้พัฒนางานวิจัยที่มีคุณภาพ ตอบโจทย์ปัญหาการผดุงครรภ์ และสร้างองค์ความรู้ใหม่ให้กับวิชาชีพ</p>
+
+      <ul class="course-list">
+        <li class="course-item">
+          <span class="course-code">0100500116</span>
+          <div class="course-body">
+            <div class="course-name">วิทยานิพนธ์</div>
+            <div class="course-name-en">Thesis</div>
+          </div>
+          <span class="course-credit">12(0-36-12)</span>
+          <div class="course-desc">การพัฒนาโครงร่างวิทยานิพนธ์ การดำเนินการวิจัย การวิเคราะห์ข้อมูล การเขียนรายงาน การสอบป้องกันวิทยานิพนธ์ และการตีพิมพ์เผยแพร่</div>
+        </li>
+      </ul>
+
+      <h3>การกระจายการเรียนวิทยานิพนธ์</h3>
+      <ul>
+        <li><strong>ปีที่ 1 ภาค 2</strong> — เริ่มพัฒนาโครงร่างวิทยานิพนธ์ (2 หน่วยกิต)</li>
+        <li><strong>ปีที่ 1 ภาคฤดูร้อน</strong> — สอบป้องกันโครงร่างและขอจริยธรรมการวิจัย (2 หน่วยกิต)</li>
+        <li><strong>ปีที่ 2 ภาค 1</strong> — เก็บข้อมูลและวิเคราะห์ข้อมูล (3 หน่วยกิต)</li>
+        <li><strong>ปีที่ 2 ภาค 2</strong> — เขียนรายงานและสอบป้องกันวิทยานิพนธ์ (3 หน่วยกิต)</li>
+        <li>ตีพิมพ์เผยแพร่ในวารสารระดับชาติ/นานาชาติ หรือนำเสนอในที่ประชุมวิชาการ</li>
+      </ul>
+
+      <div class="info-card">
+        <div class="info-card-title">การสนับสนุนการทำวิทยานิพนธ์</div>
+        <p style="margin:0">หลักสูตรจัด<em>ค่ายพัฒนาโครงร่างวิจัย</em> การวิเคราะห์ข้อมูล การเขียนรายงาน การเตรียมต้นฉบับ และค่ายเทคโนโลยีในการสืบค้นและจัดทำบรรณานุกรม รวมถึง<strong>จัดสรรทุนวิจัย</strong> และผู้ช่วยสอนสำหรับนักศึกษา</p>
+      </div>
+    `
+  },
+  {
+    title: 'แผนการศึกษา',
+    subtitle: 'Two-Year Study Plan',
+    body: `
+      <p>แผนการศึกษาแบบ <strong>เต็มเวลา 2 ปี</strong> รวม 5 ภาคการศึกษา (รวมภาคฤดูร้อนปี 1)</p>
+
+      <h3>ปีที่ 1 — ภาคการศึกษาที่ 1</h3>
+      <ul>
+        <li>แนวคิดและทฤษฎีทางการพยาบาล <em>2(2-0-4)</em></li>
+        <li>ระบบสุขภาพ ภาวะผู้นำ กฎหมายและจริยธรรมทางการพยาบาล <em>2(2-0-4)</em></li>
+        <li>วิจัยและการใช้หลักฐานเชิงประจักษ์ทางการพยาบาล <em>2(2-0-4)</em></li>
+        <li>สถิติประยุกต์ในการวิจัยทางการพยาบาล <em>2(1-2-3)</em></li>
+        <li>พยาธิสรีรวิทยาและเภสัชวิทยาทางการผดุงครรภ์ <em>2(2-0-4)</em></li>
+      </ul>
+      <p style="text-align:right;color:var(--burgundy);font-weight:600">รวม 10 หน่วยกิต</p>
+
+      <h3>ปีที่ 1 — ภาคการศึกษาที่ 2</h3>
+      <ul>
+        <li>การผดุงครรภ์ในระยะตั้งครรภ์และหลังคลอด <em>2(2-0-4)</em></li>
+        <li>การผดุงครรภ์ในระยะคลอด <em>2(2-0-4)</em></li>
+        <li>ปฏิบัติการผดุงครรภ์ในระยะตั้งครรภ์และหลังคลอด <em>3(0-9-3)</em></li>
+        <li>วิชาเลือก <em>3(x-x-x)</em></li>
+        <li>วิทยานิพนธ์ <em>2(0-6-2)</em></li>
+      </ul>
+      <p style="text-align:right;color:var(--burgundy);font-weight:600">รวม 12 หน่วยกิต</p>
+
+      <h3>ปีที่ 1 — ภาคฤดูร้อน</h3>
+      <ul>
+        <li>ปฏิบัติการผดุงครรภ์ในระยะคลอด <em>3(0-9-3)</em></li>
+        <li>สัมมนาทางการผดุงครรภ์ <em>1(0-2-1)</em></li>
+        <li>วิทยานิพนธ์ <em>2(0-6-2)</em></li>
+      </ul>
+      <p style="text-align:right;color:var(--burgundy);font-weight:600">รวม 6 หน่วยกิต</p>
+
+      <h3>ปีที่ 2 — ภาคการศึกษาที่ 1</h3>
+      <ul>
+        <li>วิทยานิพนธ์ <em>3(0-9-3)</em></li>
+      </ul>
+      <p style="text-align:right;color:var(--burgundy);font-weight:600">รวม 3 หน่วยกิต</p>
+
+      <h3>ปีที่ 2 — ภาคการศึกษาที่ 2</h3>
+      <ul>
+        <li>วิทยานิพนธ์ <em>3(0-9-3)</em></li>
+        <li>สอบป้องกันวิทยานิพนธ์และตีพิมพ์เผยแพร่</li>
+      </ul>
+      <p style="text-align:right;color:var(--burgundy);font-weight:600">รวม 3 หน่วยกิต</p>
+
+      <div class="info-card">
+        <div class="info-card-title">รวมตลอดหลักสูตร</div>
+        <p style="margin:0;font-size:18px"><strong>34 หน่วยกิตจากรายวิชา + วิทยานิพนธ์ 12 หน่วยกิต</strong> ทั้งนี้นักศึกษาต้องสำเร็จไม่เกิน 4 ปีตามรอบของหลักสูตร</p>
+      </div>
+    `
+  },
+  {
+    title: 'คุณสมบัติและการรับเข้า',
+    subtitle: 'Admission Requirements',
+    body: `
+      <p>ผู้ที่สนใจเข้าศึกษาในหลักสูตรนี้ต้องมีคุณสมบัติตามที่กำหนดไว้ในข้อบังคับสถาบันพระบรมราชชนก ว่าด้วยการจัดการศึกษาระดับบัณฑิตศึกษา พ.ศ. 2567</p>
+
+      <h3>คุณสมบัติของผู้สมัคร</h3>
+      <ol>
+        <li>สำเร็จการศึกษา<strong>ปริญญาตรีสาขาพยาบาลศาสตร์</strong>หรือเทียบเท่า จากสถาบันการศึกษาที่สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม และสภาการพยาบาลรับรอง</li>
+        <li>มี<strong>ใบอนุญาตเป็นผู้ประกอบวิชาชีพการพยาบาลและผดุงครรภ์ชั้น 1</strong> ที่ไม่หมดอายุ</li>
+        <li>มี<strong>ประสบการณ์ทำงานด้านการพยาบาลอย่างน้อย 1 ปี</strong> นับถึงวันเปิดภาคการศึกษา</li>
+        <li>มี <strong>GPA ไม่ต่ำกว่า 2.50</strong> จากระบบ 4 ระดับคะแนน</li>
+        <li>มีคะแนน<strong>ภาษาอังกฤษ</strong>ตามเกณฑ์ที่สถาบันพระบรมราชชนกกำหนด</li>
+      </ol>
+
+      <h3>กรณีผู้สมัครชาวต่างชาติ</h3>
+      <ul>
+        <li>สำเร็จการศึกษาปริญญาตรีสาขาพยาบาลศาสตร์หรือเทียบเท่า</li>
+        <li>ได้รับอนุญาตประกอบวิชาชีพการพยาบาลในประเทศของตน หรือมีใบรับรองจาก Nursing Regulatory Authority ในประเทศของผู้สมัคร</li>
+        <li>สามารถ<em>สื่อสารภาษาไทยได้</em></li>
+      </ul>
+
+      <h3>กรณีพิเศษ</h3>
+      <p>หากผู้สมัครมีคุณสมบัติแตกต่างจากที่กำหนดในข้อ 3–5 สามารถยื่นคำร้องเพื่อขอรับการพิจารณาเป็นรายกรณี โดย<strong>คณะกรรมการบริหารหลักสูตร</strong>เป็นผู้พิจารณา</p>
+
+      <h3>กระบวนการรับนักศึกษา</h3>
+      <ol>
+        <li>กำหนดนโยบายและขั้นตอนการรับสมัครจากสถานบริการสาธารณสุขและสถาบันการศึกษา</li>
+        <li>ดำเนินการรับสมัครผ่าน<em>เว็บไซต์ของคณะพยาบาลศาสตร์</em></li>
+        <li>จัดทำประกาศรายชื่อผู้มีสิทธิ์เข้าศึกษา</li>
+      </ol>
+
+      <div class="info-card">
+        <div class="info-card-title">การเตรียมความพร้อมก่อนเข้าศึกษา</div>
+        <p style="margin:0">หลักสูตรจัด<strong>โครงการเตรียมความพร้อม ปฐมนิเทศ ระบบอาจารย์ที่ปรึกษา การอบรมภาษาอังกฤษและทักษะการสืบค้นข้อมูล</strong> ก่อนเปิดภาคการศึกษา เพื่อให้นักศึกษาปรับตัวกับการเรียนระดับบัณฑิตศึกษาได้อย่างราบรื่น</p>
+      </div>
+    `
+  },
+  {
+    title: 'เกณฑ์การสำเร็จการศึกษา',
+    subtitle: 'Graduation Requirements',
+    body: `
+      <p>เพื่อสำเร็จการศึกษาตามหลักสูตรพยาบาลศาสตรมหาบัณฑิต สาขาวิชาการผดุงครรภ์ นักศึกษาต้องผ่านเกณฑ์ทั้งหมด <strong>6 ข้อ</strong> ตามข้อบังคับสถาบันพระบรมราชชนก ว่าด้วยการจัดการศึกษาระดับบัณฑิตศึกษา พ.ศ. 2567</p>
+
+      <h3>เกณฑ์ที่ 1 · ศึกษารายวิชาครบถ้วน</h3>
+      <p>ศึกษารายวิชาครบทั้ง <strong>36 หน่วยกิต</strong> โดยได้รับ<em>คะแนนเฉลี่ยไม่ต่ำกว่า 3.00</em> จากระบบ 4 ระดับคะแนน</p>
+
+      <h3>เกณฑ์ที่ 2 · บรรลุผลลัพธ์การเรียนรู้</h3>
+      <p>บรรลุ<strong>ผลลัพธ์การเรียนรู้ระดับหลักสูตร (PLOs) ทุกผลลัพธ์</strong> ทั้ง 6 ด้าน</p>
+
+      <h3>เกณฑ์ที่ 3 · ผ่านการทดสอบภาษาอังกฤษ</h3>
+      <p>ผ่านการทดสอบภาษาอังกฤษตามเกณฑ์ที่สถาบันพระบรมราชชนกกำหนด</p>
+
+      <h3>เกณฑ์ที่ 4 · สอบผ่านวิทยานิพนธ์</h3>
+      <p>สอบผ่านวิทยานิพนธ์ โดยมีการ<em>ประชาสัมพันธ์การสอบ</em>ให้ผู้สนใจภายนอกทราบ และส่งวิทยานิพนธ์ฉบับสมบูรณ์ต่อสถาบัน</p>
+
+      <h3>เกณฑ์ที่ 5 · ตีพิมพ์เผยแพร่ผลงาน</h3>
+      <p>ผลงานวิทยานิพนธ์หรือส่วนหนึ่งของวิทยานิพนธ์ต้อง<strong>ได้รับการตีพิมพ์</strong>หรืออย่างน้อยได้รับการตอบรับให้ตีพิมพ์ในวารสาร<em>ระดับชาติหรือนานาชาติ</em>ที่มีคุณภาพ ตามประกาศคณะกรรมการมาตรฐานการอุดมศึกษา พ.ศ. 2565 หรือนำเสนอในที่ประชุมวิชาการที่มี Full Paper ตีพิมพ์ใน Proceedings อย่างน้อย 1 เรื่อง</p>
+
+      <h3>เกณฑ์ที่ 6 · กรณีสิ่งประดิษฐ์</h3>
+      <p>หากวิทยานิพนธ์เกี่ยวข้องกับ<strong>สิ่งประดิษฐ์/นวัตกรรม</strong> อาจถือ<em>การจดทะเบียนสิทธิบัตรหรืออนุสิทธิบัตร</em>แทนการตีพิมพ์ในวารสารได้ ตามดุลพินิจของคณะกรรมการบัณฑิตศึกษาประจำหลักสูตร</p>
+
+      <div class="info-card">
+        <div class="info-card-title">การประเมินผลรายวิชา</div>
+        <p style="margin:0">ใช้ระบบ <strong>A, B+, B, C+, C, D+, D, F</strong> สำหรับรายวิชาทั่วไป และ <strong>S/U</strong> สำหรับวิชาประเภทผ่าน-ไม่ผ่าน โดยมีการประเมินทั้ง <em>Formative</em> (ระหว่างเรียน) และ <em>Summative</em> (สรุปผล) พร้อม Feedback ภายใน 2 สัปดาห์</p>
+      </div>
+
+      <div class="info-card" style="border-left-color:var(--sage)">
+        <div class="info-card-title" style="color:var(--sage)">ตัวบ่งชี้ความสำเร็จ</div>
+        <p style="margin:0">หลักสูตรกำหนดให้<strong>ร้อยละ 50 ของนักศึกษา</strong>ต้องนำเสนอผลงานวิชาการในเวทีวิชาการระดับชาติหรือนานาชาติ และ<strong>ร้อยละ 70 ของอาจารย์</strong>ต้องตีพิมพ์เผยแพร่ผลงานวิจัย เพื่อสะท้อนคุณภาพของหลักสูตรในการผลิตบัณฑิตและสร้างชุมชนวิชาการ</p>
+      </div>
+    `
+  }
+];
+
+/* =========================================================
+   QUIZ
+========================================================= */
+const quiz = [
+  {
+    q: 'หลักสูตรพยาบาลศาสตรมหาบัณฑิต สาขาวิชาการผดุงครรภ์ มีจำนวนหน่วยกิตรวมตลอดหลักสูตรไม่น้อยกว่ากี่หน่วยกิต',
+    options: ['30 หน่วยกิต', '33 หน่วยกิต', '36 หน่วยกิต', '40 หน่วยกิต'],
+    correct: 2
+  },
+  {
+    q: 'หมวดวิชาเฉพาะของหลักสูตรนี้มีจำนวนกี่หน่วยกิต',
+    options: ['8 หน่วยกิต', '12 หน่วยกิต', '13 หน่วยกิต', '15 หน่วยกิต'],
+    correct: 2
+  },
+  {
+    q: 'PLO 4 ของหลักสูตรเน้นเรื่องใด',
+    options: [
+      'การวิเคราะห์ศาสตร์ทางการผดุงครรภ์',
+      'การปฏิบัติการผดุงครรภ์ขั้นสูง',
+      'การทำวิจัยและพัฒนานวัตกรรม',
+      'การใช้เทคโนโลยีดิจิทัลและนวัตกรรมที่ทันสมัย'
+    ],
+    correct: 3
+  },
+  {
+    q: 'ผู้สมัครเข้าศึกษาต้องมี GPA ระดับปริญญาตรีไม่ต่ำกว่าเท่าใด',
+    options: ['2.00', '2.50', '2.75', '3.00'],
+    correct: 1
+  },
+  {
+    q: 'นักศึกษาต้องมีประสบการณ์ทำงานด้านการพยาบาลอย่างน้อยกี่ปีก่อนเข้าศึกษา',
+    options: ['ไม่ต้องมีประสบการณ์', '1 ปี', '2 ปี', '3 ปี'],
+    correct: 1
+  },
+  {
+    q: 'การสำเร็จการศึกษากำหนดให้นักศึกษาต้องได้คะแนนเฉลี่ยสะสมไม่ต่ำกว่าเท่าใด',
+    options: ['2.50', '2.75', '3.00', '3.25'],
+    correct: 2
+  },
+  {
+    q: 'วิทยานิพนธ์ในหลักสูตรนี้มีจำนวนกี่หน่วยกิต',
+    options: ['6 หน่วยกิต', '9 หน่วยกิต', '12 หน่วยกิต', '15 หน่วยกิต'],
+    correct: 2
+  },
+  {
+    q: 'รหัสตัวอักษรในแผนที่หลักสูตร "M" หมายถึงอะไร',
+    options: [
+      'Introduced — ให้ความรู้ขั้นพื้นฐาน',
+      'Reinforced — เสริมและทบทวนความรู้',
+      'Practice — ฝึกปฏิบัติในสถานการณ์จริง',
+      'Mastery — สร้างความเชี่ยวชาญ'
+    ],
+    correct: 3
+  },
+  {
+    q: 'จุดเน้นของหลักสูตรในมิติของการเชื่อมโยงระบบบริการสุขภาพคืออะไร',
+    options: [
+      'Tertiary Care Midwifery',
+      'Primary Care Midwifery',
+      'Hospital-based Midwifery เพียงอย่างเดียว',
+      'Home-based Midwifery เพียงอย่างเดียว'
+    ],
+    correct: 1
+  },
+  {
+    q: 'รายวิชา "การพยาบาลทางไกลและการสื่อสารสุขภาพ" (Telenursing and Health Communication) อยู่ในหมวดใด',
+    options: ['หมวดวิชาแกน', 'หมวดวิชาเฉพาะ', 'หมวดวิชาเลือก', 'วิทยานิพนธ์'],
+    correct: 2
+  }
+];
+
+/* =========================================================
+   RENDER
+========================================================= */
+const root = document.getElementById('root');
+
+function updateProgress(){
+  const wrap = document.getElementById('progressWrap');
+  if (state.view === 'welcome' || state.view === 'certificate'){
+    wrap.style.display = 'none';
+    return;
+  }
+  wrap.style.display = '';
+  const completedCount = state.completed.size;
+  const total = modules.length;
+  document.getElementById('progNum').textContent = completedCount;
+  document.getElementById('progFill').style.width = (completedCount / total * 100) + '%';
+}
+
+function renderWelcome(){
+  root.innerHTML = `
+    <div class="welcome">
+      <div class="welcome-card">
+        <div class="welcome-eyebrow">คณะพยาบาลศาสตร์ · สถาบันพระบรมราชชนก</div>
+        <h1 class="welcome-title">หลักสูตรพยาบาลศาสตรมหาบัณฑิต<br>สาขาวิชาการผดุงครรภ์</h1>
+        <p class="welcome-subtitle">Master of Nursing Science · Midwifery</p>
+        <div class="welcome-divider"></div>
+        <p class="welcome-desc">
+          ระบบเรียนรู้ออนไลน์เพื่อแนะนำหลักสูตร ให้ผู้สนใจและนักศึกษาใหม่ได้รู้จักวัตถุประสงค์ ผลลัพธ์การเรียนรู้ โครงสร้างรายวิชา แผนการศึกษา และเกณฑ์การสำเร็จการศึกษา ผ่าน <em>12 บทเรียนสั้นๆ</em>
+        </p>
+
+        <input type="text" id="nameInput" class="name-input" placeholder="กรอกชื่อ-นามสกุลของคุณ (สำหรับประกาศนียบัตร)" maxlength="80" />
+        <div class="name-hint">ตัวอย่าง: นางสาวสุภาวดี รักการศึกษา</div>
+
+        <button class="btn-primary" id="startBtn" disabled>
+          เริ่มเรียนรู้
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+
+        <div class="welcome-meta">
+          <div class="meta-item"><div class="meta-num">12</div><div class="meta-label">บทเรียน</div></div>
+          <div class="meta-item"><div class="meta-num">10</div><div class="meta-label">ข้อสอบรวบยอด</div></div>
+          <div class="meta-item"><div class="meta-num">80%</div><div class="meta-label">เกณฑ์ผ่าน</div></div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const input = document.getElementById('nameInput');
+  const btn = document.getElementById('startBtn');
+  input.value = state.studentName;
+  btn.disabled = !state.studentName.trim();
+  input.addEventListener('input', e=>{
+    state.studentName = e.target.value;
+    btn.disabled = !state.studentName.trim();
+  });
+  btn.addEventListener('click', ()=>{
+    if (!state.studentName.trim()) return;
+    state.view = 'learn';
+    state.currentModule = 0;
+    render();
+  });
+}
+
+function renderLearn(){
+  const m = modules[state.currentModule];
+  const total = modules.length;
+  const allDone = state.completed.size === total;
+
+  const sidebar = modules.map((mod, i)=>{
+    const done = state.completed.has(i);
+    const active = i === state.currentModule;
+    return `
+      <li class="sidebar-item ${active?'active':''} ${done?'completed':''}" data-idx="${i}">
+        <span class="module-num">${String(i+1).padStart(2,'0')}</span>
+        <span style="flex:1">${mod.title}</span>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7"/></svg>
+      </li>
+    `;
+  }).join('');
+
+  const isLast = state.currentModule === total - 1;
+
+  root.innerHTML = `
+    <div class="stage">
+      <div class="learn-grid">
+        <aside class="sidebar">
+          <div class="sidebar-title">บทเรียนทั้งหมด</div>
+          <ul class="sidebar-list">${sidebar}</ul>
+        </aside>
+
+        <article class="content">
+          <div class="module-eyebrow">บทที่ ${String(state.currentModule+1).padStart(2,'0')} / ${String(total).padStart(2,'0')}</div>
+          <h1 class="module-title">${m.title}</h1>
+          <p class="module-subtitle">${m.subtitle}</p>
+          <div class="module-divider"></div>
+          ${m.body}
+
+          <div class="nav-row">
+            <div class="left">
+              ${state.currentModule > 0 ? '<button class="btn-secondary" id="prevBtn">← บทก่อนหน้า</button>' : ''}
+            </div>
+            <div class="right">
+              ${ isLast
+                ? (allDone
+                  ? '<button class="btn-primary" id="quizBtn">ทำแบบทดสอบรวบยอด <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>'
+                  : '<button class="btn-primary" id="completeBtn">เรียนจบบทนี้ → เปิดแบบทดสอบ</button>')
+                : '<button class="btn-primary" id="nextBtn">บทถัดไป <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>'
+              }
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  `;
+
+  // sidebar click
+  document.querySelectorAll('.sidebar-item').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      // mark current as completed when leaving
+      state.completed.add(state.currentModule);
+      state.currentModule = parseInt(el.dataset.idx);
+      render();
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  });
+
+  // nav buttons
+  const prevBtn = document.getElementById('prevBtn');
+  if (prevBtn) prevBtn.addEventListener('click', ()=>{
+    state.completed.add(state.currentModule);
+    state.currentModule--;
+    render();
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+  const nextBtn = document.getElementById('nextBtn');
+  if (nextBtn) nextBtn.addEventListener('click', ()=>{
+    state.completed.add(state.currentModule);
+    state.currentModule++;
+    render();
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+  const completeBtn = document.getElementById('completeBtn');
+  if (completeBtn) completeBtn.addEventListener('click', ()=>{
+    state.completed.add(state.currentModule);
+    render();
+  });
+  const quizBtn = document.getElementById('quizBtn');
+  if (quizBtn) quizBtn.addEventListener('click', ()=>{
+    state.view = 'quiz';
+    state.quizAnswers = {};
+    state.quizSubmitted = false;
+    render();
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+}
+
+function renderQuiz(){
+  if (!state.quizSubmitted){
+    const questions = quiz.map((q,i)=>{
+      const selected = state.quizAnswers[i];
+      const opts = q.options.map((opt,j)=>{
+        const letter = String.fromCharCode(65+j);
+        const isSel = selected === j;
+        return `
+          <li class="q-option ${isSel?'selected':''}" data-q="${i}" data-opt="${j}">
+            <span class="q-option-letter">${letter}</span>
+            <span>${opt}</span>
+          </li>
+        `;
+      }).join('');
+      return `
+        <div class="quiz-question">
+          <div class="q-num">Question ${String(i+1).padStart(2,'0')}</div>
+          <div class="q-text">${q.q}</div>
+          <ul class="q-options">${opts}</ul>
+        </div>
+      `;
+    }).join('');
+
+    const allAnswered = Object.keys(state.quizAnswers).length === quiz.length;
+
+    root.innerHTML = `
+      <div class="stage">
+        <article class="content" style="max-width:820px;margin:0 auto">
+          <div class="quiz-intro">
+            <div class="quiz-icon">Q</div>
+            <div class="module-eyebrow">Final Assessment</div>
+            <h1 class="module-title">แบบทดสอบรวบยอด</h1>
+            <p class="module-subtitle">Comprehensive Quiz · ${quiz.length} ข้อ</p>
+          </div>
+
+          <div class="quiz-rules">
+            <div class="info-card-title">กติกา</div>
+            <ul style="margin:8px 0 0 20px">
+              <li>มีทั้งหมด <strong>${quiz.length} ข้อ</strong> ตอบถูก <strong>≥ 80%</strong> เพื่อรับประกาศนียบัตร</li>
+              <li>เลือกคำตอบที่ถูกต้องที่สุด สามารถเปลี่ยนคำตอบได้ก่อนกดส่ง</li>
+              <li>ตอบครบทุกข้อก่อนกด "ส่งคำตอบ"</li>
+            </ul>
+          </div>
+
+          ${questions}
+
+          <div class="nav-row">
+            <div class="left">
+              <button class="btn-secondary" id="backToLearn">← กลับไปทบทวน</button>
+            </div>
+            <div class="right">
+              <button class="btn-primary" id="submitQuiz" ${allAnswered?'':'disabled'}>
+                ส่งคำตอบ
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    `;
+
+    document.querySelectorAll('.q-option').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        const qi = parseInt(el.dataset.q);
+        const oi = parseInt(el.dataset.opt);
+        state.quizAnswers[qi] = oi;
+        renderQuiz();
+      });
+    });
+    document.getElementById('backToLearn').addEventListener('click', ()=>{
+      state.view = 'learn';
+      render();
+    });
+    const sub = document.getElementById('submitQuiz');
+    sub.addEventListener('click', ()=>{
+      // calculate score
+      let score = 0;
+      quiz.forEach((q,i)=>{ if (state.quizAnswers[i] === q.correct) score++; });
+      state.score = score;
+      state.quizSubmitted = true;
+      state.view = 'result';
+      render();
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+
+  }
+}
+
+function renderResult(){
+  const total = quiz.length;
+  const pct = Math.round(state.score / total * 100);
+  const passed = pct >= 80;
+
+  const reviewItems = quiz.map((q,i)=>{
+    const userAns = state.quizAnswers[i];
+    const correct = q.correct;
+    const opts = q.options.map((opt,j)=>{
+      let cls = '';
+      let letter = String.fromCharCode(65+j);
+      if (j === correct) cls = 'correct';
+      else if (j === userAns) cls = 'incorrect';
+      return `
+        <li class="q-option ${cls}">
+          <span class="q-option-letter">${letter}</span>
+          <span>${opt}</span>
+          ${j === correct ? '<span style="margin-left:auto;color:var(--sage);font-size:13px">✓ คำตอบที่ถูก</span>' : (j === userAns ? '<span style="margin-left:auto;color:#B23A3A;font-size:13px">คำตอบของคุณ</span>' : '')}
+        </li>
+      `;
+    }).join('');
+    return `
+      <div class="quiz-question">
+        <div class="q-num">Question ${String(i+1).padStart(2,'0')} ${userAns === correct ? '· <span style="color:var(--sage)">ถูกต้อง</span>' : '· <span style="color:#B23A3A">ผิด</span>'}</div>
+        <div class="q-text">${q.q}</div>
+        <ul class="q-options">${opts}</ul>
+      </div>
+    `;
+  }).join('');
+
+  root.innerHTML = `
+    <div class="stage">
+      <article class="content" style="max-width:820px;margin:0 auto">
+        <div class="result-card">
+          <div class="module-eyebrow">${passed ? 'Congratulations' : 'Almost There'}</div>
+          <div class="result-score">${state.score}<span class="total"> / ${total}</span></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--ochre);font-size:18px">${pct}% accuracy</div>
+          <h2 class="result-msg ${passed?'pass':'fail'}">${passed ? 'ยินดีด้วย คุณผ่านเกณฑ์แล้ว' : 'ยังไม่ผ่านเกณฑ์ 80%'}</h2>
+          <p class="result-desc">${passed
+            ? 'คุณได้ทำความเข้าใจหลักสูตรพยาบาลศาสตรมหาบัณฑิต สาขาวิชาการผดุงครรภ์ ครบถ้วนแล้ว — กดปุ่มด้านล่างเพื่อรับประกาศนียบัตร'
+            : 'ลองทบทวนเนื้อหาในบทเรียนอีกครั้ง แล้วทำแบบทดสอบใหม่ได้เลย'}</p>
+
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+            ${passed
+              ? '<button class="btn-primary" id="getCert">รับประกาศนียบัตร <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 15l-2 5 4-3 4 3-2-5"/><circle cx="12" cy="9" r="6"/></svg></button>'
+              : '<button class="btn-primary" id="retake">ทำแบบทดสอบใหม่</button>'}
+            <button class="btn-secondary" id="backLearn">กลับไปทบทวนบทเรียน</button>
+          </div>
+        </div>
+
+        <h3 style="margin-top:48px">เฉลยและคำตอบของคุณ</h3>
+        ${reviewItems}
+      </article>
+    </div>
+  `;
+
+  if (passed){
+    document.getElementById('getCert').addEventListener('click', ()=>{
+      state.view = 'certificate';
+      render();
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  } else {
+    document.getElementById('retake').addEventListener('click', ()=>{
+      state.quizAnswers = {};
+      state.quizSubmitted = false;
+      state.view = 'quiz';
+      render();
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+  }
+  document.getElementById('backLearn').addEventListener('click', ()=>{
+    state.view = 'learn';
+    render();
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+}
+
+function renderCertificate(){
+  const date = new Date();
+  const thMonths = ['มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม'];
+  const thaiYear = date.getFullYear() + 543;
+  const dateStr = `${date.getDate()} ${thMonths[date.getMonth()]} พ.ศ. ${thaiYear}`;
+  const certId = 'MNS-MID-' + Date.now().toString().slice(-8);
+  const pct = Math.round(state.score / quiz.length * 100);
+
+  root.innerHTML = `
+    <div class="cert-stage">
+      <div class="cert-actions">
+        <button class="btn-primary" onclick="window.print()">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6z"/></svg>
+          พิมพ์/บันทึกเป็น PDF
+        </button>
+        <button class="btn-secondary" id="restartBtn">เริ่มใหม่</button>
+      </div>
+
+      <div class="certificate" id="certificate">
+        <div class="cert-corner tl"></div>
+        <div class="cert-corner tr"></div>
+        <div class="cert-corner bl"></div>
+        <div class="cert-corner br"></div>
+
+        <div class="cert-header">
+          <div class="cert-seal">M</div>
+          <div class="cert-eyebrow">Certificate of Completion</div>
+          <h1 class="cert-title">ประกาศนียบัตร</h1>
+          <p class="cert-subtitle">คณะพยาบาลศาสตร์ · สถาบันพระบรมราชชนก</p>
+          <div class="cert-divider"></div>
+        </div>
+
+        <div class="cert-body">
+          <div class="cert-presented">มอบให้แก่ · presented to</div>
+          <div class="cert-name">${escapeHtml(state.studentName)}</div>
+          <p class="cert-text">เพื่อรับรองว่าได้ศึกษาและผ่านการประเมินความรู้ความเข้าใจเกี่ยวกับ</p>
+          <div class="cert-course">หลักสูตรพยาบาลศาสตรมหาบัณฑิต สาขาวิชาการผดุงครรภ์</div>
+          <div class="cert-course-en">Master of Nursing Science Programme in Midwifery</div>
+          <p class="cert-text">โดยตอบคำถามถูกต้อง <strong style="color:var(--burgundy-deep)">${state.score} จาก ${quiz.length} ข้อ (${pct}%)</strong> ผ่านเกณฑ์ที่กำหนด</p>
+        </div>
+
+        <div class="cert-footer">
+          <div class="cert-sig">
+            <div class="cert-sig-line"></div>
+            <div class="cert-sig-name">${dateStr}</div>
+            <div>วันที่ออกประกาศนียบัตร · Date Issued</div>
+          </div>
+          <div class="cert-stamp">
+            <div>
+              <strong>VERIFIED</strong>
+              ${certId}
+            </div>
+          </div>
+          <div class="cert-sig">
+            <div class="cert-sig-line"></div>
+            <div class="cert-sig-name">คณะกรรมการบริหารหลักสูตร</div>
+            <div>Programme Committee</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('restartBtn').addEventListener('click', ()=>{
+    if (!confirm('ต้องการเริ่มใหม่ทั้งหมดใช่หรือไม่?')) return;
+    state.studentName = '';
+    state.view = 'welcome';
+    state.currentModule = 0;
+    state.completed = new Set();
+    state.quizAnswers = {};
+    state.quizSubmitted = false;
+    state.score = 0;
+    render();
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
+function render(){
+  switch(state.view){
+    case 'welcome': renderWelcome(); break;
+    case 'learn': renderLearn(); break;
+    case 'quiz': renderQuiz(); break;
+    case 'result': renderResult(); break;
+    case 'certificate': renderCertificate(); break;
+  }
+  updateProgress();
+}
+
+render();
+</script>
+
+</body>
+</html>
